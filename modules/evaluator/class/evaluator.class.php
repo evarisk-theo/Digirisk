@@ -68,7 +68,6 @@ class Evaluator_Class extends \eoxia\User_Class {
 
 		$current_page            = ! empty( $_POST['next_page'] ) ? (int) $_POST['next_page'] : 1; // WPCS: input var ok.
 		$evaluators = User_Class::g()->get();
-		$default_duration = 15;
 		$args_where_evaluator = array(
 			'type'         => 'user',
 			'name'         => 'user_id',
@@ -90,7 +89,6 @@ class Evaluator_Class extends \eoxia\User_Class {
 			'evaluators'              => $evaluators,
 			'current_page'            => $current_page,
 			'list_affected_evaluator' => $list_affected_evaluator,
-			'default_duration'        => $default_duration,
 		) );
 	}
 
@@ -166,7 +164,7 @@ class Evaluator_Class extends \eoxia\User_Class {
 	 * @return Evaluator_Model   Les données de l'évaluateur.
 	 */
 	public function affect_user( $society, $user_id, $data ) {
-		
+
 		$end_date = new \DateTime( mysql2date('Y-m-d H:i:s', $data['affectation_date']) );
 		$end_date->add( new \DateInterval( 'PT' . $data['affectation_duration'] . 'M' ) );
 		$evaluator = Evaluator_Class::g()->get( array( 'id' => $user_id ), true );

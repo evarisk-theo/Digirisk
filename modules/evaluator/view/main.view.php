@@ -22,6 +22,5 @@ global $eo_search; ?>
 	'element_id'              => $element->data['id'],
 	'evaluators'              => $evaluators,
 	'list_affected_evaluator' => $list_affected_evaluator,
-	'default_duration'        => $default_duration,
 ) );
 ?>

@@ -47,7 +47,7 @@ global $eo_search;
 	<div class="table-cell table-50 duration-container">
 		<label class="form-field-container">
 			<input type="hidden"  value="">
-			<input type="number" name="affectation_duration" value="<?php  echo $default_duration ?>">
+			<input type="number" name="affectation_duration" value="<?php  echo Setting_Class::g()->get_evaluation_default_duration() ?>">
 		</label>
 	</div>
 

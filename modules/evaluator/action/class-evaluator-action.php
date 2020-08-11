@@ -47,9 +47,8 @@ class Evaluator_Action {
 			$element_id = (int) $_POST['user_id'];
 		}
 
-		$default_duration     = 15;
 		$affectation_date     = ! empty( $_POST['affectation_date'] ) ? (string) $_POST['affectation_date'] : '';
-		$affectation_duration = ! empty( $_POST['affectation_duration'] ) ? (int)  $_POST['affectation_duration'] : $default_duration;
+		$affectation_duration = ! empty( $_POST['affectation_duration'] ) ? (int)  $_POST['affectation_duration'] : Setting_Class::g()->get_evaluation_default_duration();
 		$user_id              = ! empty( $_POST['user_id'] ) ? (int) $_POST['user_id'] : 0;
 		$parent_id            = ! empty( $_POST['parent_id'] ) ? (int) $_POST['parent_id'] : 0;
 		$users                = ! empty( $_POST['list_user'] ) ? (array) $_POST['list_user'] : array();
@@ -69,11 +68,10 @@ class Evaluator_Action {
 
 		Society_Class::g()->update($element->data);
 		User_Class::g()->update($evaluator->data);
-		
+
 		ob_start();
 		\eoxia\View_Util::exec( 'digirisk', 'evaluator', 'list-item', array(
-			'default_duration' => $default_duration,
-      'element'          => $element,
+	 	    'element'          => $element,
 			'evaluator'        => end($affected_evaluator[$affectation_date]),
 
 		) );

@@ -32,7 +32,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'element'    => $element,
 					'element_id' => $element->data['id'],
 					'evaluator'  => $evaluator,
-					'default_duration' => $default_duration,
 					) );
 					?>
 
@@ -46,7 +45,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'element'          => $element,
 		'element_id'       => $element->data['id'],
 		'list_affected_evaluator' => $list_affected_evaluator,
-		'default_duration' => $default_duration,
 	) );
 
 	?>
